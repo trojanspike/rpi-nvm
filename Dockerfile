@@ -10,4 +10,4 @@ RUN apt-get update && \
 
 RUN /bin/bash -c "git clone https://github.com/creationix/nvm.git ${NVM_DIR} && cd ${NVM_DIR} && git checkout ${NVM_VERSION}"
 
-CMD["nvm", "ls"]
+RUN echo "source /nvm/nvm.sh" >> /root/.bashrc

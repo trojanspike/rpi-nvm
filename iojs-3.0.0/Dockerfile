@@ -6,5 +6,8 @@ ENV NVM_NODE_VERSION iojs-3.0.0
 
 RUN /bin/bash -c "source ${NVM_DIR}/nvm.sh && nvm install ${NVM_NODE_VERSION} && nvm use ${NVM_NODE_VERSION} && nvm alias default ${NVM_NODE_VERSION}"
 
-ENTRYPOINT["/bin/bash", "-c", "source", "${NVM_DIR}/nvm.sh"]
-CMD["node"]
+ADD entrypoint.sh /root/entrypoint.sh
+
+ENTRYPOINT ["/root/entrypoint.sh"]
+
+CMD ["node"]
