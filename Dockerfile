@@ -5,8 +5,8 @@ ENV NVM_DIR /nvm
 ENV NVM_VERSION v0.25.4
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends build-essential git libssl-dev python ca-certificates curl && \
-    rm -rf /var/lib/apt/lists/*
+apt-get install -y --no-install-recommends build-essential git libssl-dev python ca-certificates curl && \
+rm -rf /var/lib/apt/lists/*
 
 RUN /bin/bash -c "git clone https://github.com/creationix/nvm.git ${NVM_DIR} && cd ${NVM_DIR} && git checkout ${NVM_VERSION}"
 
